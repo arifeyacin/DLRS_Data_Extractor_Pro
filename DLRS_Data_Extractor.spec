@@ -9,7 +9,6 @@ datas = [
     ('config.json', '.'),
 ]
 
-# Add CustomTkinter assets
 datas += collect_data_files('customtkinter')
 
 hiddenimports = [
@@ -22,7 +21,11 @@ hiddenimports = [
     'playwright',
     'bs4',
     'sqlite3',
+    'PIL',
+    'urllib3',
 ]
+
+hiddenimports += collect_submodules('app')
 
 a = Analysis(
     ['main.py'],

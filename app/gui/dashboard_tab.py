@@ -40,17 +40,33 @@ class DashboardTab(ctk.CTkFrame):
         )
         lbl_title.pack(side="left")
 
-        # 2. Target URL Input Section
+        # 2. Target URL Input Section & Format Selector
         url_frame = ctk.CTkFrame(self, corner_radius=8)
-        url_frame.pack(fill="x", padx=20, pady=10)
+        url_frame.pack(fill="x", padx=20, pady=8)
         url_frame.grid_columnconfigure(1, weight=1)
 
         lbl_url = ctk.CTkLabel(url_frame, text="Target URL:", font=ctk.CTkFont(size=12, weight="bold"))
-        lbl_url.grid(row=0, column=0, padx=(15, 5), pady=12)
+        lbl_url.grid(row=0, column=0, padx=(15, 5), pady=(12, 4))
 
         self.url_entry = ctk.CTkEntry(url_frame, font=ctk.CTkFont(size=11), placeholder_text="Enter DLRS Page URL...")
         self.url_entry.insert(0, initial_url)
-        self.url_entry.grid(row=0, column=1, padx=5, pady=12, sticky="ew")
+        self.url_entry.grid(row=0, column=1, padx=5, pady=(12, 4), sticky="ew")
+
+        # Checkbox Format Filter Bar
+        fmt_bar = ctk.CTkFrame(url_frame, fg_color="transparent")
+        fmt_bar.grid(row=1, column=1, padx=5, pady=(0, 10), sticky="w")
+
+        ctk.CTkLabel(fmt_bar, text="Target Formats to Download:", font=ctk.CTkFont(size=11, weight="bold"), text_color="gray70").pack(side="left", padx=(0, 8))
+
+        self.var_fmt_pdf = ctk.BooleanVar(value=True)
+        self.var_fmt_html = ctk.BooleanVar(value=True)
+        self.var_fmt_img = ctk.BooleanVar(value=True)
+        self.var_fmt_doc = ctk.BooleanVar(value=False)
+
+        ctk.CTkCheckBox(fmt_bar, text="PDF (.pdf)", variable=self.var_fmt_pdf, width=18).pack(side="left", padx=6)
+        ctk.CTkCheckBox(fmt_bar, text="HTML Pages", variable=self.var_fmt_html, width=18).pack(side="left", padx=6)
+        ctk.CTkCheckBox(fmt_bar, text="Images (PNG/JPG)", variable=self.var_fmt_img, width=18).pack(side="left", padx=6)
+        ctk.CTkCheckBox(fmt_bar, text="Spreadsheets/Docs", variable=self.var_fmt_doc, width=18).pack(side="left", padx=6)
 
         # 3. Control Buttons Panel
         btn_frame = ctk.CTkFrame(self, fg_color="transparent")

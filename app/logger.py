@@ -7,11 +7,14 @@ import os
 import logging
 from typing import Callable, Optional
 
+import queue
+
 class GUIHandler(logging.Handler):
-    """Custom logging handler to forward logs to GUI live log listener."""
+    """Custom logging handler with queue buffering to forward logs without UI lag."""
     def __init__(self, callback: Optional[Callable[[str, str], None]] = None):
         super().__init__()
         self.callback = callback
+        self.log_queue = queue.Queue()
 
     def emit(self, record: logging.LogRecord):
         if self.callback:
