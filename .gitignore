@@ -1,0 +1,42 @@
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Python cache & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# PyInstaller Build Output
+build/
+dist/
+*.manifest
+*.spec.bak
+
+# Output Data (Raw PDFs, DBs, Logs, OCR Caches)
+Output/PDFs/*
+Output/SQLite/*
+Output/Logs/*
+Output/OCR/*
+Output/JSON/*
+Output/CSV/*
+Output/Excel/*
+
+# Keep output folder structure directory placeholders
+!Output/PDFs/.gitkeep
+!Output/SQLite/.gitkeep
+!Output/Logs/.gitkeep
+!Output/OCR/.gitkeep
+!Output/JSON/.gitkeep
+!Output/CSV/.gitkeep
+!Output/Excel/.gitkeep
+
+# IDE & System Files
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db

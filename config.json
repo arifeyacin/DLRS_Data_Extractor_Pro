@@ -1,0 +1,50 @@
+{
+  "app_name": "DLRS Data Extractor Pro",
+  "version": "1.0.0",
+  "theme": "Dark",
+  "language": "en",
+  "target_urls": [
+    "https://dlrs.gov.bd/pages/static-pages/অর্পিত-সম্পত্তির-গ্যাজেট-তালিকা-ldsoay-6994019afcf25ca2d10077ca"
+  ],
+  "download": {
+    "output_dir": "./Output",
+    "pdf_dir": "./Output/PDFs",
+    "threads": 4,
+    "max_retries": 3,
+    "timeout_seconds": 30,
+    "chunk_size": 8192,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36",
+    "auto_resume": true,
+    "skip_existing": true
+  },
+  "ocr": {
+    "enabled": true,
+    "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+    "language": "ben+eng",
+    "psm": 6,
+    "oem": 3,
+    "dpi": 300,
+    "output_dir": "./Output/OCR"
+  },
+  "database": {
+    "db_path": "./Output/SQLite/dlrs_data.db",
+    "fts_enabled": true,
+    "batch_size": 100
+  },
+  "export": {
+    "json_dir": "./Output/JSON",
+    "csv_dir": "./Output/CSV",
+    "excel_dir": "./Output/Excel",
+    "formats": ["json", "csv", "excel", "sqlite"]
+  },
+  "logging": {
+    "log_dir": "./Output/Logs",
+    "level": "INFO",
+    "files": {
+      "download": "download.log",
+      "error": "error.log",
+      "ocr": "ocr.log",
+      "system": "system.log"
+    }
+  }
+}

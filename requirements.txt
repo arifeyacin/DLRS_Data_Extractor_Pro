@@ -1,0 +1,24 @@
+# Core Web Scraping & HTTP
+requests>=2.31.0
+beautifulsoup4>=4.12.2
+lxml>=5.1.0
+playwright>=1.41.0
+urllib3>=2.2.0
+
+# Desktop Application GUI
+customtkinter>=5.2.2
+darkdetect>=0.8.0
+pillow>=10.2.0
+
+# PDF & Data Processing
+PyMuPDF>=1.23.22
+pdfplumber>=0.10.4
+pytesseract>=0.3.10
+pandas>=2.2.0
+openpyxl>=3.1.2
+
+# Build & Packaging
+pyinstaller>=6.4.0
+
+# Testing
+pytest>=8.0.0
